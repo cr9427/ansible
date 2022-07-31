@@ -1,2 +1,6 @@
 ---
-timezone: Europe/Berlin
+config_system_timezone: Europe/Berlin
+config_system_locale: en_US.UTF-8
+config_system_locales:
+   - "en_US.UTF-8"
+   - "de_DE.UTF-8"
