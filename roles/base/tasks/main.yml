@@ -1,3 +1,4 @@
 ---
 - import_tasks: tasks/packages.yml
+- import_tasks: roles/base/tasks/timezone.yml
 - import_tasks: roles/base/tasks/holm.yml
