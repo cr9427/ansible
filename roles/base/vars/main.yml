@@ -1,0 +1,12 @@
+---
+packages:
+  - etckeeper
+  - net-tools
+  - zsh
+  - htop
+  - vim-nox
+  - psmisc
+  - git
+  - lsof
+  - sudo
+  - binutils

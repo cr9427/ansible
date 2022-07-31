@@ -1,0 +1,11 @@
+---
+packages:
+  - mc
+  - sipcalc
+  - nmap
+  - ncat
+  - samba-common-bin
+  - mutt
+  - stow
+  - tree
+  - mtr-tiny
