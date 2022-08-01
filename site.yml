@@ -24,6 +24,12 @@
     - base
 
 
+- hosts: CrylleHQ
+  become: true
+  roles:
+    - CrylleHQ
+
+
 - hosts: workstations
   become: true
   roles:

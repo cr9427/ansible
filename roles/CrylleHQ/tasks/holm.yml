@@ -6,5 +6,5 @@
     umask: 022
     groups: sudo, adm
     shell: /usr/bin/zsh
-    home: /home/holm
-    create_home: yes
+    home: /homes/holm
+    create_home: no
