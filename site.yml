@@ -29,10 +29,10 @@
     - base
 
 
-- hosts: CrylleHQ
+- hosts: crylle
   become: true
   roles:
-    - CrylleHQ
+    - crylle
 
 
 - hosts: workstations
