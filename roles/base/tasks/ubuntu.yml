@@ -1,0 +1,13 @@
+---
+- name: "ubuntu specific tasks"
+  tags: base,ubuntu
+  when: ansible_distribution == "Ubuntu"
+  block:
+  
+  - name: "install ubuntu specific packages"
+    apt:
+      name: "{{ item }}"
+      state: latest
+    loop:
+      - "landscape-common"
+      - "update-notifier-common"
