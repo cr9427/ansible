@@ -4,3 +4,6 @@ config_system_locale: en_US.UTF-8
 config_system_locales:
    - "en_US.UTF-8"
    - "de_DE.UTF-8"
+config_unattended_upgrades_mail: "admin@crylle.net"
+config_unattended_upgrades_report: "only-on-error"
+config_unattended_upgrades_reboot: true

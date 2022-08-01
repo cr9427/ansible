@@ -37,7 +37,7 @@
 
   - name: add sudoers file for user ansible
     copy:
-      src: roles/base/files/sudoer_automator
+      src: roles/base/files/sudo/automator
       dest: /etc/sudoers.d/automator
       owner: root
       group: root
