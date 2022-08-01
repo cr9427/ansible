@@ -8,19 +8,19 @@
     debug:
       var: ansible_virtualization_type, ansible_distribution
 
-  - name: update repository cache on CentOS
-    tags: always
-    dnf:
-      update_cache: yes
-    changed_when: false
-    when: ansible_distribution == "CentOS"
-
-  - name: update repository cache on Debian based
-    tags: always
-    apt:
-      update_cache: yes
-    changed_when: false
-    when: ansible_distribution in ["Debian", "Ubuntu"]
+#  - name: update repository cache on CentOS
+#    tags: always
+#    dnf:
+#      update_cache: yes
+#    changed_when: false
+#    when: ansible_distribution == "CentOS"
+#
+#  - name: update repository cache on Debian based
+#    tags: always
+#    apt:
+#      update_cache: yes
+#    changed_when: false
+#    when: ansible_distribution in ["Debian", "Ubuntu"]
 
 
 - hosts: all
