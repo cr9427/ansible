@@ -1,6 +1,6 @@
 ---
 - name: "installing and configuring unattended-upgrades"
-  tags: locale,unattended,upgrades
+  tags: base,unattended,upgrades
   when: ansible_distribution in ['Debian', 'Ubuntu', 'Pop!_OS']
   block:
   - name: "installing unattended-upgrades package"

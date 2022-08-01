@@ -1,0 +1,8 @@
+---
+base_sshd_allow_agent_forwarding: "yes"
+base_sshd_allow_tcp_forwarding: "no"
+base_sshd_allow_password_authentication: "yes"
+base_sshd_permit_root_login: "prohibit-password"
+base_sshd_permit_tunnel: "no"
+base_sshd_x11_forwarding: "no"
+base_sshd_banner: ""

@@ -1,0 +1,12 @@
+AcceptEnv LANG LC_*
+AllowAgentForwarding {{ base_sshd_allow_agent_forwarding }}
+AllowTcpForwarding {{ base_sshd_allow_tcp_forwarding }}
+ChallengeResponseAuthentication no
+PasswordAuthentication {{ base_sshd_allow_password_authentication }}
+PermitRootLogin {{ base_sshd_permit_root_login }}
+PermitTunnel {{ base_sshd_permit_tunnel }}
+PrintMotd no
+Protocol 2
+UsePAM yes
+X11Forwarding {{ base_sshd_x11_forwarding }}
+{{ base_sshd_banner }}
