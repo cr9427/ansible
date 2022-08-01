@@ -7,12 +7,12 @@
       community.general.locale_gen:
         name: "{{ item }}"
         state: present
-      loop: "{{ config_system_locales }}"
+      loop: "{{ base_locales }}"
       notify: "rebuild locales database"
 
     - name: "set the default locale"
       lineinfile:
         dest: /etc/default/locale
         regexp: "^LANG="
-        line: "LANG={{ config_system_locale }}"
+        line: "LANG={{ base_locale }}"
       notify: "rebuild locales database"

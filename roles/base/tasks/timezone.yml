@@ -2,4 +2,4 @@
 - name: "set timezone to {{ config_system_timezone }}"
   tags: time, timezone
   community.general.timezone:
-    name: "{{ config_system_timezone }}"
+    name: "{{ base_timezone }}"
