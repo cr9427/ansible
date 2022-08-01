@@ -11,6 +11,7 @@
     loop:
       - "landscape-common"
       - "update-notifier-common"
+      - "systemd-timesyncd"
 
 - name: "specific tasks for Pop!_OS"
   tags: base,ubuntu
@@ -23,4 +24,5 @@
       state: latest
     loop:
       - "landscape-common"
+      - "systemd-timesyncd"
 

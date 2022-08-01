@@ -1,0 +1,13 @@
+---
+- name: "installing and configuring systemd timesyncd"
+  tags: base,time,timesync,timesyncd,ntp
+  when: ansible_distribution in ['Debian', 'Ubuntu', 'Pop!_OS']
+  block:
+  - name: "generating systemd timesyncd settings from template"
+    template:
+      src: "timesyncd/timesyncd.conf.j2"
+      dest: "/etc/systemd/timesyncd.conf"
+      owner: root
+      group: root
+      mode: 0644
+    notify: "reload systemd-timesyncd"
