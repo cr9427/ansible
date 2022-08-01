@@ -1,0 +1,26 @@
+---
+- name: "installing {{ crylle_ca_caert }}" 
+  tags: crylle,ca_cert
+  when: ansible_distribution in ['Debian', 'Ubuntu', 'Pop!_OS']
+  block:
+
+    - name: "installing package ca-certificates"
+      apt:
+        name: "ca-certificates"
+        state: latest
+
+    - name: "fetching certificate from {{ crylle_ca_cert }}"
+      get_url:
+        url: "{{ crylle_ca_cert }}"
+        dest: "/usr/local/share/ca-certificates/crylle-hq-ca.crt"
+        owner: root
+        group: root
+        mode: 0644
+      register: crylle_ca_cert_update
+
+    - name: "updating ca certificates"
+      command:
+      become: yes
+      when: crylle_ca_cert_update.changed
+      args:
+        cmd: "/usr/sbin/update-ca-certificates"
