@@ -3,14 +3,14 @@
   become: true
   pre_tasks:
 
-  - name: install updates on CentOS
+  - name: "installing updates on CentOS"
     tags: always, centos
     dnf:
 #      update_only: yes
       update_cache: yes
     when: ansible_distribution == "CentOS"
 
-  - name: install updates on Debian based
+  - name: "installing updates on Debian based"
     tags: always, debian, ubuntu
     apt:
 #      upgrade: dist
@@ -22,23 +22,31 @@
   become: true
   tasks:
 
-  - name: create users for anisble
+  - name: "creating users for anisble"
     user:
-      name: automator
+      name: "automator"
       uid: 500
-      groups: sudo
+      groups: "sudo"
       system: yes
       create_home: yes
 
-  - name: add ssh key for user ansible
+  - name: "adding ssh key for user ansible"
     authorized_key:
       user: automator
       key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG+ilozyZmL+d2Q2D3dlHiFqxfe994u8YJzGOVN5QSPZ automator@crylle.net"
 
-  - name: add sudoers file for user ansible
+  - name: "adding sudoers file for user ansible"
     copy:
-      src: roles/base/files/sudo/automator
-      dest: /etc/sudoers.d/automator
+      src: "roles/base/files/sudo/automator"
+      dest: "/etc/sudoers.d/automator"
       owner: root
       group: root
       mode: 0440
+
+  - name: "copying ansible vault key for ansible-pull"
+    copy:
+      src: "~/.ansible_vault_key"
+      dest: "~automator/.ansible_vault_key"
+      owner: automator
+      group: automator
+      mode: 0400
