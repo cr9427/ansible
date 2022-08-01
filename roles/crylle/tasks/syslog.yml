@@ -1,0 +1,9 @@
+---
+- name: "setting syslog to log to {{ crylle_syslog_host }}" 
+  tags: crylle,syslog
+  when: ansible_distribution in ['Debian', 'Ubuntu', 'Pop!_OS']
+  copy:
+    dest: "/etc/rsyslog.d/10-remote.conf"
+    content: |
+      {{ crylle_syslog_host }}
+  notify: "reload syslog"

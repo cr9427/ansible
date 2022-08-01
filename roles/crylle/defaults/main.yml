@@ -1,3 +1,4 @@
 ---
 crylle_apt_cache: "http://apt-cache:3142/"
 crylle_ca_cert: "http://www.crylle.local/ca.crt"
+crylle_syslog_host: '*.* @@syslog'

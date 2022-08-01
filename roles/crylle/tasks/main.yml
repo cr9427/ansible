@@ -1,6 +1,7 @@
 ---
 #- import_tasks: tasks/packages.yml
 - import_tasks: roles/crylle/tasks/apt_cache.yml
+- import_tasks: roles/crylle/tasks/syslog.yml
 - import_tasks: roles/crylle/tasks/holm.yml
 - import_tasks: roles/crylle/tasks/autofs.yml
 - import_tasks: roles/crylle/tasks/kerberos.yml

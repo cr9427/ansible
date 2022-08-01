@@ -1,6 +1,13 @@
 ---
+- name: "reload syslog"
+  service:
+    name: rsyslog
+    state: restarted
+    enabled: yes
+
 - name: "reload autofs"
   service:
     name: autofs
     state: restarted
     enabled: yes
+
