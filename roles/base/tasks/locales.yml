@@ -1,7 +1,7 @@
 ---
 - name: "prepare and set locale" 
   tags: locale
-  when: ansible_distribution in ["Debian", "Ubuntu"]
+  when: ansible_distribution in ['Debian', 'Ubuntu', 'Pop!_OS']
   block:
     - name: "generate locales"
       community.general.locale_gen:

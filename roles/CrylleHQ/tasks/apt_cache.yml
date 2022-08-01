@@ -1,7 +1,7 @@
 ---
 - name: "setting apt_cache to {{ config_apt_cache }}" 
   tags: crylle,apt_cache 
-  when: ansible_distribution in ["Debian", "Ubuntu"]
+  when: ansible_distribution in ['Debian', 'Ubuntu', 'Pop!_OS']
   copy:
     dest: /etc/apt/apt.conf.d/01proxy
     content: |

@@ -6,16 +6,16 @@
   - name: install updates on CentOS
     tags: always, centos
     dnf:
-      update_only: yes
+#      update_only: yes
       update_cache: yes
     when: ansible_distribution == "CentOS"
 
   - name: install updates on Debian based
     tags: always, debian, ubuntu
     apt:
-      upgrade: dist
+#      upgrade: dist
       update_cache: yes
-    when: ansible_distribution in ["Debian", "Ubuntu"]
+    when: ansible_distribution in ["Debian", "Ubuntu", "Pop!_OS"]
 
 
 - hosts: all

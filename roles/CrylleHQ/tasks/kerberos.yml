@@ -1,7 +1,7 @@
 ---
 - name: "install kerberos client" 
   tags: crylle,kerberos
-  when: ansible_distribution in ["Debian", "Ubuntu"]
+  when: ansible_distribution in ['Debian', 'Ubuntu', 'Pop!_OS']
   block:
 
     - name: "install package krb5-user"
