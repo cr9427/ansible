@@ -1,12 +1,13 @@
 ---
 packages:
-  - etckeeper
-  - net-tools
-  - zsh
-  - htop
-  - vim-nox
-  - psmisc
-  - git
-  - lsof
-  - sudo
-  - binutils
+  - "etckeeper"
+  - "net-tools"
+  - "zsh"
+  - "htop"
+  - "vim-nox"
+  - "psmisc"
+  - "git"
+  - "lsof"
+  - "sudo"
+  - "binutils"
+  - "bsd-mailx"
