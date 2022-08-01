@@ -4,7 +4,7 @@
   when: ansible_distribution in ['Ubuntu']
   block:
   
-  - name: "install specific packages for Ubuntu"
+  - name: "installing specific packages for Ubuntu"
     apt:
       name: "{{ item }}"
       state: latest
@@ -17,7 +17,7 @@
   when: ansible_distribution in ['Pop!_OS']
   block:
   
-  - name: "install specific packages for Pop!_OS"
+  - name: "installing specific packages for Pop!_OS"
     apt:
       name: "{{ item }}"
       state: latest

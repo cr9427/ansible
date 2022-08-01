@@ -1,15 +1,15 @@
 ---
-- name: "install autofs" 
+- name: "installing autofs" 
   tags: autofs
   when: ansible_distribution in ['Debian', 'Ubuntu', 'Pop!_OS']
   block:
 
-    - name: "install package autofs"
+    - name: "installing package autofs"
       apt:
         name: "autofs"
         state: latest
 
-    - name: "install mount maps"
+    - name: "installing mount maps"
       copy:
         src: "autofs/{{ item }}"
         dest: "/etc/{{ item }}"
@@ -22,7 +22,7 @@
         - "auto.nas"
       notify: "reload autofs"
 
-    - name: "enable browse mode in autofs"
+    - name: "enableing browse mode in autofs"
       lineinfile:
         dest: "/etc/autofs.conf"
         regexp: "^browse_mode ="

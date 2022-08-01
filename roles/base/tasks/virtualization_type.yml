@@ -4,14 +4,14 @@
   when: ansible_virtualization_type == "NA"
   block:
   
-  - name: "install lldpd package"
+  - name: "installing lldpd package"
     apt:
       name: "{{ item }}"
       state: latest
     loop:
       - "lldpd"
 
-  - name: "start lldpd"
+  - name: "starting lldpd"
     service:
       name: "lldpd"
       state: started
@@ -22,14 +22,14 @@
   when: ansible_virtualization_type == "kvm"
   block:
   
-  - name: "install qemu-guest-agent package"
+  - name: "installing qemu-guest-agent package"
     apt:
       name: "{{ item }}"
       state: latest
     loop:
       - "qemu-guest-agent"
 
-  - name: "start qemu-guest-agent"
+  - name: "starting qemu-guest-agent"
     service:
       name: "qemu-guest-agent"
       state: started
@@ -40,7 +40,7 @@
   when: ansible_virtualization_type == "vmware"
   block:
   
-  - name: "install open-vm-tools package"
+  - name: "installing open-vm-tools package"
     apt:
       name: "{{ item }}"
       state: latest

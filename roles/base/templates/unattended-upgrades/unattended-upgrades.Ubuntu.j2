@@ -70,13 +70,13 @@ Unattended-Upgrade::MinimalSteps "true";
 // If empty or unset then no email is sent, make sure that you
 // have a working mail setup on your system. A package that provides
 // 'mailx' must be installed. E.g. "user@example.com"
-Unattended-Upgrade::Mail "{{ config_unattended_upgrades_mail }}";
+Unattended-Upgrade::Mail "{{ base_unattended_upgrades_mail }}";
 
 // Set this value to one of:
 //    "always", "only-on-error" or "on-change"
 // If this is not set, then any legacy MailOnlyOnError (boolean) value
 // is used to chose between "only-on-error" and "on-change"
-Unattended-Upgrade::MailReport "{{ config_unattended_upgrades_report }}";
+Unattended-Upgrade::MailReport "{{ base_unattended_upgrades_report }}";
 
 // Remove unused automatically installed kernel-related packages
 // (kernel images, kernel headers and kernel version locked tools).
@@ -91,7 +91,7 @@ Unattended-Upgrade::Remove-Unused-Dependencies "true";
 
 // Automatically reboot *WITHOUT CONFIRMATION* if
 //  the file /var/run/reboot-required is found after the upgrade
-Unattended-Upgrade::Automatic-Reboot "{{ config_unattended_upgrades_reboot }}";
+Unattended-Upgrade::Automatic-Reboot "{{ base_unattended_upgrades_reboot }}";
 
 // Automatically reboot even if there are users currently logged in
 // when Unattended-Upgrade::Automatic-Reboot is set to true

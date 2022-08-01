@@ -4,12 +4,12 @@
   when: ansible_distribution in ['Debian', 'Ubuntu', 'Pop!_OS']
   block:
 
-    - name: "install package krb5-user"
+    - name: "installing package krb5-user"
       apt:
         name: "krb5-user"
         state: latest
 
-    - name: "install krb5.conf"
+    - name: "installing krb5.conf"
       copy:
         src: "kerberos/krb5.conf"
         dest: "/etc/krb5.conf"

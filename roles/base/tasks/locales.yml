@@ -1,16 +1,16 @@
 ---
-- name: "prepare and set locale" 
+- name: "prepareing and set locale" 
   tags: locale
   when: ansible_distribution in ['Debian', 'Ubuntu', 'Pop!_OS']
   block:
-    - name: "generate locales"
+    - name: "generating locales"
       community.general.locale_gen:
         name: "{{ item }}"
         state: present
       loop: "{{ base_locales }}"
       notify: "rebuild locales database"
 
-    - name: "set the default locale"
+    - name: "setting the default locale"
       lineinfile:
         dest: /etc/default/locale
         regexp: "^LANG="

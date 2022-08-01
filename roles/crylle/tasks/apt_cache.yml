@@ -3,6 +3,6 @@
   tags: crylle,apt_cache 
   when: ansible_distribution in ['Debian', 'Ubuntu', 'Pop!_OS']
   copy:
-    dest: /etc/apt/apt.conf.d/01proxy
+    dest: "/etc/apt/apt.conf.d/01proxy"
     content: |
       Acquire::http { Proxy "{{ crylle_apt_cache }}"; };

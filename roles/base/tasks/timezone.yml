@@ -1,5 +1,5 @@
 ---
-- name: "set timezone to {{ config_system_timezone }}"
+- name: "setting timezone to {{ base_timezone }}"
   tags: time, timezone
   community.general.timezone:
     name: "{{ base_timezone }}"
