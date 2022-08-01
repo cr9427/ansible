@@ -1,1 +1,6 @@
 ---
+- name: "reload autofs"
+  service:
+    name: autofs
+    state: restarted
+    enabled: yes

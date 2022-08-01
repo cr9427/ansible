@@ -1,0 +1,30 @@
+---
+- name: "install autofs" 
+  tags: autofs
+  when: ansible_distribution in ["Debian", "Ubuntu"]
+  block:
+
+    - name: "install package autofs"
+      apt:
+        name: "autofs"
+        state: latest
+
+    - name: "install mount maps"
+      copy:
+        src: "autofs/{{ item }}"
+        dest: "/etc/{{ item }}"
+        owner: root
+        group: root
+        mode: 0444
+      loop:
+        - "auto.master"
+        - "auto.homes"
+        - "auto.nas"
+      notify: "reload autofs"
+
+    - name: "enable browse mode in autofs"
+      lineinfile:
+        dest: "/etc/autofs.conf"
+        regexp: "^browse_mode ="
+        line: "browse_mode = yes"
+      notify: "reload autofs"

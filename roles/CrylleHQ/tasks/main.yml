@@ -1,3 +1,4 @@
 ---
 #- import_tasks: tasks/packages.yml
 - import_tasks: roles/CrylleHQ/tasks/holm.yml
+- import_tasks: roles/CrylleHQ/tasks/autofs.yml
