@@ -24,5 +24,4 @@
       state: latest
     loop:
       - "landscape-common"
-      - "systemd-timesyncd"
 
