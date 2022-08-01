@@ -1,10 +1,10 @@
 ---
-- name: "ubuntu specific tasks"
+- name: "specific tasks for Ubuntu"
   tags: base,ubuntu
   when: ansible_distribution == "Ubuntu"
   block:
   
-  - name: "install ubuntu specific packages"
+  - name: "install specific packages for Ubuntu"
     apt:
       name: "{{ item }}"
       state: latest

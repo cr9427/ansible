@@ -3,6 +3,11 @@
   become: true
   pre_tasks:
 
+  - name: "print sone vars"
+    tags: debug
+    debug:
+      var: ansible_virtualization_type, ansible_distribution
+
   - name: update repository cache on CentOS
     tags: always
     dnf:
