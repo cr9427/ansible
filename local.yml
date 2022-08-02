@@ -1,0 +1,24 @@
+---
+- hosts: all
+  tags: always
+  become: true
+  pre_tasks:
+
+  - name: "print some vars"
+    tags: always
+    tags: debug
+    debug:
+      var: ansible_virtualization_type, ansible_distribution
+
+  - name: update repository cache on Debian based
+    tags: always
+    apt:
+      update_cache: yes
+    changed_when: false
+    when: ansible_distribution in ["Debian", "Ubuntu"]
+
+- hosts: all
+  tags: base
+  become: true
+  roles:
+    - base
