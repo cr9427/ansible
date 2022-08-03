@@ -12,3 +12,4 @@ packages:
   - "binutils"
   - "bsd-mailx"
   - "locales"
+  - "ansible"
