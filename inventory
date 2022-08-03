@@ -1,5 +1,4 @@
 localhost
-unassigned
 
 [servers]
 192.168.1.233
@@ -12,9 +11,9 @@ unassigned
 192.168.1.199
 
 [crylle]
+unassigned
 192.168.1.220
 192.168.1.203
 192.168.1.199
 ubuntu-3
 192.168.1.204
-unassigned
