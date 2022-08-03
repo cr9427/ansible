@@ -1,4 +1,6 @@
 localhost
+unassigned
+
 [servers]
 192.168.1.233
 192.168.1.220
@@ -15,3 +17,4 @@ localhost
 192.168.1.199
 ubuntu-3
 192.168.1.204
+unassigned
