@@ -1,4 +1,10 @@
 ---
+- name: "installing package rsyslog"
+  apt:
+    name: "rsyslog"
+    state: latest
+  when: ansible_distribution in ['Debian', 'Ubuntu', 'Pop!_OS']
+
 - name: "setting syslog to log to {{ crylle_syslog_host }}" 
   tags: crylle,syslog
   when: ansible_distribution in ['Debian', 'Ubuntu', 'Pop!_OS']
