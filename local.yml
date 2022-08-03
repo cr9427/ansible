@@ -9,20 +9,29 @@
     debug:
       var: ansible_virtualization_type, ansible_distribution
 
-  - name: update repository cache on Debian based
+  - name: "update repository cache on Debian based"
     apt:
       update_cache: yes
     changed_when: false
     when: ansible_distribution in ["Debian", "Ubuntu"]
 
 - hosts: localhost
+  gather_facts: false
   tags: base
   become: true
   roles:
     - base
 
 - hosts: crylle
+  gather_facts: false
   tags: crylle
   become: true
   roles:
     - crylle
+
+- hosts: workstations
+  gather_facts: false
+  tags: crylle
+  become: true
+  roles:
+    - workstations
