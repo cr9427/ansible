@@ -32,8 +32,8 @@
     create_home: yes
     password: "$6$j9bjDnd.BY8BUs6v$bxi7SLmTd0UIHBPRuyeiVL8Vt4CFBGeXQnlNpUyPhWpu45ZOepXKMXf9LLJLGoZZTt5RXcahmSHaFSihkqXVp1"
 
-- name: "adding ssh-key for user holm"
-  tags: base,holm
-  authorized_key:
-    user: "holm"
-    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBVtawLHGmKWf8WBPLhqksVCLvLYj+B8fev8QNEk/tVV hk@crylle.net"
+#- name: "adding ssh-key for user holm"
+#  tags: base,holm
+#  authorized_key:
+#    user: "holm"
+#    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBVtawLHGmKWf8WBPLhqksVCLvLYj+B8fev8QNEk/tVV hk@crylle.net"
