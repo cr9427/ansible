@@ -1,5 +1,5 @@
 ---
-- name: "add ansible-pull cron job"
+- name: "adding ansible-pull cron job"
   cron:
     name: ansible auto-provision
     user: automator
