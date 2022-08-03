@@ -18,20 +18,17 @@
 - hosts: localhost
   tags: base
   become: true
-  gather_facts: false
   roles:
     - base
 
 - hosts: crylle
   tags: crylle
   become: true
-  gather_facts: false
   roles:
     - crylle
 
 - hosts: workstations
   tags: crylle
   become: true
-  gather_facts: false
   roles:
     - workstations
