@@ -6,4 +6,4 @@
 - import_tasks: roles/base/tasks/unattended-upgrades.yml
 - import_tasks: roles/base/tasks/locales.yml
 - import_tasks: roles/base/tasks/timezone.yml
-- import_tasks: roles/base/tasks/holm.yml
+- import_tasks: roles/base/tasks/users.yml

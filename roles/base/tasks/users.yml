@@ -1,4 +1,25 @@
 ---
+- name: "creating users for anisble"
+  user:
+    name: "automator"
+    uid: 500
+    groups: "sudo"
+    system: yes
+    create_home: yes
+
+- name: "adding ssh key for user ansible"
+  authorized_key:
+    user: automator
+    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG+ilozyZmL+d2Q2D3dlHiFqxfe994u8YJzGOVN5QSPZ automator@crylle.net"
+
+- name: "adding sudoers file for user ansible"
+  copy:
+    src: "roles/base/files/sudo/automator"
+    dest: "/etc/sudoers.d/automator"
+    owner: root
+    group: root
+    mode: 0440
+
 - name: "creating user holm"
   tags: base,holm
   when: inventory_hostname not in groups['crylle']
@@ -12,7 +33,6 @@
     password: "$6$j9bjDnd.BY8BUs6v$bxi7SLmTd0UIHBPRuyeiVL8Vt4CFBGeXQnlNpUyPhWpu45ZOepXKMXf9LLJLGoZZTt5RXcahmSHaFSihkqXVp1"
 
 - name: "adding ssh-key for user holm"
-
   tags: base,holm
   authorized_key:
     user: "holm"
