@@ -3,11 +3,14 @@ localhost
 [crylle]
 unassigned
 test
+testus
 ubuntu-1
 ubuntu-2
 ubuntu-3
 192.168.1.204
 192.168.1.201
+192.168.1.201
+192.168.1.227
 
 [workstations]
 pop-os
