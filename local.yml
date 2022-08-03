@@ -16,22 +16,22 @@
     when: ansible_distribution in ["Debian", "Ubuntu"]
 
 - hosts: localhost
-  gather_facts: false
   tags: base
   become: true
+  gather_facts: false
   roles:
     - base
 
 - hosts: crylle
-  gather_facts: false
   tags: crylle
   become: true
+  gather_facts: false
   roles:
     - crylle
 
 - hosts: workstations
-  gather_facts: false
   tags: crylle
   become: true
+  gather_facts: false
   roles:
     - workstations
