@@ -1,0 +1,7 @@
+---
+- name: "add ansible-pull cron job"
+   cron:
+     name: ansible auto-provision
+     user: automator
+     haur: "*/4"
+     job: ansible-pull -o -U https://github.com/cr9427/ansible.git
