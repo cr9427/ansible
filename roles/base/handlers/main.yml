@@ -1,9 +1,15 @@
 ---
-- name: "reload ssh"
+- name: "reloading ssh"
   service:
     name: ssh
     state: restarted
     enabled: yes
 
-- name: "rebuild locales database"
+- name: "reloading postfix"
+  service:
+    name: postfix
+    state: restarted
+    enabled: yes
+
+- name: "rebuilding locales database"
   command: dpkg-reconfigure -f noninteractive locales

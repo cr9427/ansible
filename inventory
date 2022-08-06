@@ -13,6 +13,7 @@ dev2
 dev3
 dev4
 dev5
+fd00:cafe::42:a9ff:fe18:adeb
 
 [workstations]
 pop-os
