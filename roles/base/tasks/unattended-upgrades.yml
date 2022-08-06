@@ -9,8 +9,8 @@
       state: latest
 
   - name: "configuring auto-upgrades settings"
-    copy:
-      src: "unattended-upgrades/21auto-upgrades-local"
+    template:
+      src: "unattended-upgrades/21auto-upgrades-local.j2"
       dest: "/etc/apt/apt.conf.d/21auto-upgrades-local"
       owner: root
       group: root
