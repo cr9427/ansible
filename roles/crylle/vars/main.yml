@@ -1,5 +1,2 @@
 ---
 packages:
-  - 'stow'
-  - 'mutt'
-  - 'sipcalc'
