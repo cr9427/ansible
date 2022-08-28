@@ -1,24 +1,18 @@
 localhost
 
 [crylle]
-pop-os
 unassigned
+pop-os
 test
 testus
-ubuntu-1
-ubuntu-2
-ubuntu-3
 dev1
 dev2
 dev3
-dev4
-dev5
-u1
-u2
-u3
-u4
-u5
-fd00:cafe::42:a9ff:fe18:adeb
 
 [workstations]
 pop-os
+test
+testus
+dev1
+dev2
+dev3
