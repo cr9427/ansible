@@ -13,3 +13,5 @@ packages:
   - "bsd-mailx"
   - "locales"
   - "ansible"
+  - "iputils-ping"
+  - "iputils-tracepath"
