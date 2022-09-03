@@ -22,7 +22,4 @@
         path: '/etc/exports'
         line: '/srv/nfs/share *(rw,sync,no_subtree_check,no_root_squash,no_all_squash,insecure)'
         create: yes
-
-    - name: 'exporting the nfs share'
-      shell:
-        cmd: 'exportfs -ra'
+      notify: "reloading nfs exports"

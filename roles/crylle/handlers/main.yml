@@ -1,17 +1,17 @@
 ---
-- name: "reload syslog"
+- name: "reloading syslog"
   service:
     name: rsyslog
     state: restarted
     enabled: yes
 
-- name: "reload autofs"
+- name: "reloading autofs"
   service:
     name: autofs
     state: restarted
     enabled: yes
 
-- name: "reload systemd-timesyncd"
+- name: "reloading systemd-timesyncd"
   service:
     name: systemd-timesyncd
     state: restarted

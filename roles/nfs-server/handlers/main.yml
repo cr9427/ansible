@@ -1,1 +1,4 @@
 ---
+- name: "reloading nfs exports"
+  shell:
+    cmd: 'exportfs -ra'

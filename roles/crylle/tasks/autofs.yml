@@ -20,11 +20,11 @@
         - "auto.master"
         - "auto.homes"
         - "auto.nas"
-      notify: "reload autofs"
+      notify: "reloading autofs"
 
     - name: "enableing browse mode in autofs"
       lineinfile:
         dest: "/etc/autofs.conf"
         regexp: "^browse_mode ="
         line: "browse_mode = yes"
-      notify: "reload autofs"
+      notify: "reloading autofs"
