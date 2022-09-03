@@ -15,3 +15,4 @@ packages:
   - "ansible"
   - "iputils-ping"
   - "iputils-tracepath"
+  - "openssh-server"
