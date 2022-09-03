@@ -27,6 +27,12 @@
   roles:
     - crylle
 
+- hosts: nfs-server
+  tags: crylle
+  become: true
+  roles:
+    - nfs-server
+
 - hosts: workstations
   tags: crylle
   become: true
