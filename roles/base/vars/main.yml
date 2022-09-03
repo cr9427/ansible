@@ -16,3 +16,5 @@ packages:
   - "iputils-ping"
   - "iputils-tracepath"
   - "openssh-server"
+  - "curl"
+  - "dialog"
