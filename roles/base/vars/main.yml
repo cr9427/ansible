@@ -17,4 +17,3 @@ packages:
   - "iputils-tracepath"
   - "openssh-server"
   - "curl"
-  - "dialog"
