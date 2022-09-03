@@ -1,5 +1,2 @@
 ---
-- import_role:
-    name: crylle
-
 - import_tasks: roles/nfs-server/tasks/nfs-server.yml
