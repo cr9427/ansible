@@ -1,10 +1,10 @@
 ---
 - name: "creating simple nfs server"
   tags: nfs
-  when: ansible_distribution in ['Debian', 'Ubuntu', 'Pop!_OS']
   block:
 
     - name: 'installing nfs-server packages'
+      when: ansible_distribution in ['Debian', 'Ubuntu', 'Pop!_OS']
       package:
         name: 'nfs-kernel-server'
         state: latest
