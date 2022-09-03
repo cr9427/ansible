@@ -1,6 +1,24 @@
 ---
-- name: "installing nfs-server packages"
+- name: 'installing nfs-server packages'
   when: ansible_distribution in ['Debian', 'Ubuntu', 'Pop!_OS']
   package:
-    name: "nfs-kernel-server"
+    name: 'nfs-kernel-server'
     state: latest
+
+- name: 'creating nfs share'
+  file:
+    path: '/srv/nfs/share'
+    state: directory
+    mode: '0755'
+    owner: 'nobody'
+    group: 'nogroup'
+
+- name: 'adding nfs share to exports'
+  lineinfile:
+    path: '/etc/exports'
+    line: '/srv/nfs/kubedata *(rw,sync,no_subtree_check,no_root_squash,no_all_squash,insecure)'
+    create: yes
+
+- name: 'exporting the nfs share'
+  shell:
+    cmd: 'exportfs -ra'
