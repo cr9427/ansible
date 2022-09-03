@@ -16,7 +16,7 @@
 - name: 'adding nfs share to exports'
   lineinfile:
     path: '/etc/exports'
-    line: '/srv/nfs/kubedata *(rw,sync,no_subtree_check,no_root_squash,no_all_squash,insecure)'
+    line: '/srv/nfs/share *(rw,sync,no_subtree_check,no_root_squash,no_all_squash,insecure)'
     create: yes
 
 - name: 'exporting the nfs share'
