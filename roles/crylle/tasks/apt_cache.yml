@@ -5,4 +5,5 @@
   copy:
     dest: "/etc/apt/apt.conf.d/01proxy"
     content: |
-      Acquire::http { Proxy "{{ crylle_apt_cache }}"; };
+      Acquire::HTTP::Proxy "{{ crylle_apt_cache }}";
+      Acquire::HTTPS::Proxy "false";
