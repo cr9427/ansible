@@ -23,3 +23,7 @@ dev3
 
 [nfs-server]
 nfs
+
+[proxmox]
+pve1
+pve2

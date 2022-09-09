@@ -1,7 +1,7 @@
 ---
 - name: "specific tasks for virtualisation type NA - assuming physical"
   tags: base,physical
-  when: ansible_virtualization_type == "NA"
+  when: ansible_virtualization_type == "NA" or inventory_hostname in groups['proxmox']
   block:
   
   - name: "installing lldpd package"
@@ -19,7 +19,7 @@
 
 - name: "specific tasks for virtualisation type kvm"
   tags: base,kvm
-  when: ansible_virtualization_type == "kvm"
+  when: ansible_virtualization_type == "kvm" or inventory_hostname not in groups['proxmox']
   block:
   
   - name: "installing qemu-guest-agent package"
