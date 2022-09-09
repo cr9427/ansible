@@ -1,10 +1,10 @@
 ---
-- name: "specific tasks for Ubuntu"
+- name: "specific tasks for {{ ansible_distribution }}"
   tags: base,ubuntu
   when: ansible_distribution in ['Ubuntu']
   block:
   
-  - name: "installing specific packages for Ubuntu"
+  - name: "installing specific packages for {{ ansible_distribution }}"
     apt:
       name: "{{ item }}"
       state: latest
@@ -13,15 +13,28 @@
       - "update-notifier-common"
       - "systemd-timesyncd"
 
-- name: "specific tasks for Pop!_OS"
+- name: "specific tasks for {{ ansible_distribution }}"
   tags: base,ubuntu
   when: ansible_distribution in ['Pop!_OS']
   block:
   
-  - name: "installing specific packages for Pop!_OS"
+  - name: "installing specific packages for {{ ansible_distribution }}"
     apt:
       name: "{{ item }}"
       state: latest
     loop:
       - "landscape-common"
+
+- name: "specific tasks for {{ ansible_distribution }}"
+  tags: base,ubuntu
+  when: ansible_distribution in ['Debian']
+  block:
+  
+  - name: "installing specific packages for {{ ansible_distribution }}"
+    apt:
+      name: "{{ item }}"
+      state: latest
+    loop:
+      - "reboot-notifier"
+      - "systemd-timesyncd"
 
