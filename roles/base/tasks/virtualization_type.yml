@@ -19,7 +19,7 @@
 
 - name: "specific tasks for virtualisation type kvm"
   tags: base,kvm
-  when: ansible_virtualization_type == "kvm" or inventory_hostname not in groups['proxmox']
+  when: ansible_virtualization_type == "kvm" and inventory_hostname not in groups['proxmox']
   block:
   
   - name: "installing qemu-guest-agent package"
