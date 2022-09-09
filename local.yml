@@ -27,6 +27,12 @@
   roles:
     - crylle
 
+- hosts: proxmox
+  tags: proxmox
+  become: true
+  roles:
+    - nfs-server
+
 - hosts: nfs-server
   tags: crylle
   become: true
