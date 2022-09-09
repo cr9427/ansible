@@ -1,15 +1,15 @@
 ---
 - name: "disabling /etc/apt/sources.list.d/pve-enterprise.list"
-  copy:
-    src: "roles/proxmox/files/pve-enterprise.list"
+  template:
+    src: "pve-enterprise.list.j2"
     dest: "/etc/apt/sources.list.d/pve-enterprise.list"
     owner: root
     group: root
     mode: 0644
 
 - name: "enabling /etc/apt/sources.list.d/pve-no-subscription.list"
-  copy:
-    src: "roles/proxmox/files/pve-no-subscription.list"
+  template:
+    src: "pve-no-subscription.list.j2"
     dest: "/etc/apt/sources.list.d/pve-no-subscription.list"
     owner: root
     group: root
