@@ -10,6 +10,8 @@ dev1
 dev2
 dev3
 nfs
+pve1
+pve2
 
 [workstations]
 pop-os
