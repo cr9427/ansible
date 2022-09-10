@@ -1,0 +1,9 @@
+---
+- name: "configuring nfs-mounts"
+  shell:
+    cmd: '{{ item }}'
+  loop:
+    - 'pvesm add nfs {{ proxmox::nfs-mounts::storageId }} --path /mnt/pve/nas --server {{ proxmox::nfs-mounts::server }} --export {{ proxmox::nfs-mounts::export }}'
+    - 'pvesm set {{ proxmox::nfs-mounts::storageId }} --content {{ proxmox::nfs-mounts::content }}'
+    - 'pvesm set {{ proxmox::nfs-mounts::storageId }} --max-protected-backups {{ proxmox::nfs-mounts::max-protected-backups }}'
+    - 'pvesm set {{ proxmox::nfs-mounts::storageId }} --prune-backups {{ proxmox::nfs-mounts::prune-backups }}'

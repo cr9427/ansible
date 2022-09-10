@@ -1,1 +1,7 @@
 ---
+proxmox::nfs-mounts::storageId: 'nas'
+proxmox::nfs-mounts::server: 'nas'
+proxmox::nfs-mounts::export: '/pve'
+proxmox::nfs-mounts::content: 'vztmpl,rootdir,snippets,iso,backup,images'
+proxmox::nfs-mounts::max-protected-backups: '5'
+proxmox::nfs-mounts::prune-backups: 'keep-last=3'
