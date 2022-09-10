@@ -1,0 +1,9 @@
+---
+- name: 'adding cron job to update pve'
+  cron:
+    name: 'cron job to update pve'
+    user: root
+    minute: "7"
+    hour: "4"
+    weekday: '0,6'
+    job: '/usr/bin/pveupdate && /usr/bin/pveupgrade'
