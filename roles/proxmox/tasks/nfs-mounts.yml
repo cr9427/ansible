@@ -1,5 +1,5 @@
 ---
-- name: "configuring nfs-mounts {{ proxmox_nfs-mounts_storageId }} with {{ proxmox_nfs-mounts_server }}:/{{ proxmox_nfs-mounts_export }}'
+- name: 'configuring nfs-mounts {{ proxmox_nfs-mounts_storageId }} with {{ proxmox_nfs-mounts_server }}:/{{ proxmox_nfs-mounts_export }}'
   shell:
     cmd: '{{ item }}'
   loop:
