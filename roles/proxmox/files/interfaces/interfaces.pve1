@@ -1,0 +1,17 @@
+auto lo
+iface lo inet loopback
+
+iface enp5s0 inet manual
+
+auto vmbr0
+iface vmbr0 
+	address 192.168.1.24/24
+	address fd00:cafe::24/64
+	gateway 192.168.1.1
+	gateway fe80::cece:1eff:fea7:7e73
+	up echo 2 > /proc/sys/net/ipv6/conf/$IFACE/accept_ra
+	bridge-ports enp2s0
+	bridge-stp off
+	bridge-fd 0
+
+iface enp2s0 inet manual
