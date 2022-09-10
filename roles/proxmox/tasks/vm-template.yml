@@ -19,10 +19,11 @@
       qm set {{ proxmox_vm_template_id }} --serial0 socket --vga serial0
       qm set {{ proxmox_vm_template_id }} --agent enabled=1
       qm set {{ proxmox_vm_template_id }} --ipconfig0 ip=dhcp,ip6=dhcp
-      qm set {{ proxmox_vm_template_id }} cicustom {{ proxmox_vm_template_cicustom }}
+      qm set {{ proxmox_vm_template_id }} --cicustom {{ proxmox_vm_template_cicustom }}
       qm template {{ proxmox_vm_template_id }}
       qm clone {{ proxmox_vm_template_id }} {{ proxmox_vm_template_vmid }} \
         -name test \
+        --full false \
         --storage local-lvm
       touch /etc/pve/vm_template.configured
     creates: '/etc/pve/vm_template.configured'
