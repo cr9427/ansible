@@ -6,4 +6,4 @@
     - 'pvesm add nfs {{ proxmox_nfs_mounts_storageId }} --path /mnt/pve/nas --server {{ proxmox_nfs_mounts_server }} --export {{ proxmox_nfs_mounts_export }}'
     - 'pvesm set {{ proxmox_nfs_mounts_storageId }} --content {{ proxmox_nfs_mounts_content }}'
     - 'pvesm set {{ proxmox_nfs_mounts_storageId }} --max-protected-backups {{ proxmox_nfs_mounts_max_protected_backups }}'
-    - 'pvesm set {{ proxmox_nfs_mounts_storageId }} --prune-backups {{ proxmox_nfs_mounts_prune-backups }}'
+    - 'pvesm set {{ proxmox_nfs_mounts_storageId }} --prune-backups {{ proxmox_nfs_mounts_prune_backups }}'
