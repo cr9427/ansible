@@ -1,9 +1,9 @@
 ---
-- name: 'configuring nfs-mounts {{ proxmox_nfs-mounts_storageId }} with {{ proxmox_nfs-mounts_server }}:/{{ proxmox_nfs-mounts_export }}'
+- name: 'configuring nfs_mounts {{ proxmox_nfs_mounts_storageId }} with {{ proxmox_nfs_mounts_server }}:/{{ proxmox_nfs_mounts_export }}'
   shell:
     cmd: '{{ item }}'
   loop:
-    - 'pvesm add nfs {{ proxmox_nfs-mounts_storageId }} --path /mnt/pve/nas --server {{ proxmox_nfs-mounts_server }} --export {{ proxmox_nfs-mounts_export }}'
-    - 'pvesm set {{ proxmox_nfs-mounts_storageId }} --content {{ proxmox_nfs-mounts_content }}'
-    - 'pvesm set {{ proxmox_nfs-mounts_storageId }} --max-protected-backups {{ proxmox_nfs-mounts_max-protected-backups }}'
-    - 'pvesm set {{ proxmox_nfs-mounts_storageId }} --prune-backups {{ proxmox_nfs-mounts_prune-backups }}'
+    - 'pvesm add nfs {{ proxmox_nfs_mounts_storageId }} --path /mnt/pve/nas --server {{ proxmox_nfs_mounts_server }} --export {{ proxmox_nfs_mounts_export }}'
+    - 'pvesm set {{ proxmox_nfs_mounts_storageId }} --content {{ proxmox_nfs_mounts_content }}'
+    - 'pvesm set {{ proxmox_nfs_mounts_storageId }} --max-protected-backups {{ proxmox_nfs_mounts_max-protected-backups }}'
+    - 'pvesm set {{ proxmox_nfs_mounts_storageId }} --prune-backups {{ proxmox_nfs_mounts_prune-backups }}'
