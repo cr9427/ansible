@@ -3,6 +3,7 @@
   template:
     src: "apt/{{ item }}.list.j2"
     dest: "/etc/apt/sources.list.d/{{ item }}.list"
+    backup: yes
     owner: root
     group: root
     mode: 0644
