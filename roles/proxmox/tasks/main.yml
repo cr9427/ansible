@@ -3,3 +3,4 @@
 - import_tasks: roles/proxmox/tasks/interfaces.yml
 - import_tasks: roles/proxmox/tasks/nfs-mounts.yml
 - import_tasks: roles/proxmox/tasks/cron.yml
+- import_tasks: roles/proxmox/tasks/vm-template.yml
