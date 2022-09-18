@@ -33,7 +33,7 @@
   roles:
     - proxmox
 
-- hosts: nfs-server
+- hosts: nfs_server
   tags: crylle
   become: true
   roles:

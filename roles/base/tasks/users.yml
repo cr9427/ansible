@@ -1,5 +1,6 @@
 ---
-- name: "creating users for anisble"
+- name: "creating users for automator"
+  tags: base,automator
   user:
     name: "automator"
     uid: 500
@@ -7,12 +8,14 @@
     system: yes
     create_home: yes
 
-- name: "adding ssh key for user ansible"
+- name: "adding ssh key for user automator"
+  tags: base,automator
   authorized_key:
     user: automator
     key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG+ilozyZmL+d2Q2D3dlHiFqxfe994u8YJzGOVN5QSPZ automator@crylle.net"
 
-- name: "adding sudoers file for user ansible"
+- name: "adding sudoers file for user automator"
+  tags: base,ansible
   copy:
     src: "roles/base/files/sudo/automator"
     dest: "/etc/sudoers.d/automator"
@@ -38,3 +41,18 @@
   authorized_key:
     user: "holm"
     key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBVtawLHGmKWf8WBPLhqksVCLvLYj+B8fev8QNEk/tVV hk@crylle.net"
+
+- name: 'creating ssh-key for root'
+  tags: base,root
+  shell:
+    cmd: "ssh-keygen -t ed25519 -a 100 -f ~/.ssh/id_ed25519 -q -N ''  -C root@{{ ansible_hostname }}"
+    creates: '~/.ssh/id_ed25519'
+
+- name: 'creating .gitconfig for root'
+  tags: base,root
+  template:
+    src: "users/gitconfig-root.j2"
+    dest: "~/.gitconfig"
+    owner: root
+    group: root
+    mode: 0644
