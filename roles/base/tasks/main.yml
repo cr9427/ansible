@@ -1,4 +1,5 @@
 ---
+- import_tasks: roles/base/tasks/swap.yml
 - import_tasks: tasks/packages.yml
 - import_tasks: roles/base/tasks/virtualization_type.yml
 - import_tasks: roles/base/tasks/distribution_type.yml
