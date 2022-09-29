@@ -1,15 +1,13 @@
 ---
 - name: "specific tasks for virtualisation type NA - assuming physical"
   tags: base,physical
-  when: ansible_virtualization_type == "NA" or inventory_hostname in groups['proxmox']
+  when: ansible_virtualization_role == "host"
   block:
   
   - name: "installing lldpd package"
     apt:
-      name: "{{ item }}"
+      name: "lldpd"
       state: latest
-    loop:
-      - "lldpd"
 
   - name: "starting lldpd"
     service:
@@ -19,15 +17,13 @@
 
 - name: "specific tasks for virtualisation type kvm"
   tags: base,kvm
-  when: ansible_virtualization_type == "kvm" and inventory_hostname not in groups['proxmox']
+  when: ansible_virtualization_role == "guest" and ansible_virtualization_type == "kvm"
   block:
   
   - name: "installing qemu-guest-agent package"
     apt:
-      name: "{{ item }}"
+      name: "qemu-guest-agent"
       state: latest
-    loop:
-      - "qemu-guest-agent"
 
   - name: "starting qemu-guest-agent"
     service:
@@ -37,12 +33,10 @@
 
 - name: "specific tasks for virtualisation type vmware"
   tags: base,vmware
-  when: ansible_virtualization_type == "vmware"
+  when: ansible_virtualization_role == "guest" and ansible_virtualization_type == "vmware"
   block:
   
   - name: "installing open-vm-tools package"
     apt:
-      name: "{{ item }}"
+      name: "open-vm-tools"
       state: latest
-    loop:
-      - "open-vm-tools"
