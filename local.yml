@@ -3,44 +3,17 @@
   tags: always
   become: true
   pre_tasks:
-
   - name: "print some vars"
     tags: debug
     debug:
-      var: ansible_virtualization_type, ansible_distribution, ansible_distribution_release
+      var: >
+        ansible_virtualization_type, 
+        ansible_distribution, 
+        ansible_distribution_release
 
   - name: "update repository cache on Debian based"
     apt:
       update_cache: yes
+      cache_valid_time: 3600
     changed_when: false
     when: ansible_distribution in ["Debian", "Ubuntu"]
-
-- hosts: all
-  tags: base
-  become: true
-  roles:
-    - base
-
-- hosts: crylle
-  tags: crylle
-  become: true
-  roles:
-    - crylle
-
-- hosts: proxmox
-  tags: proxmox
-  become: true
-  roles:
-    - proxmox
-
-- hosts: nfs_server
-  tags: crylle
-  become: true
-  roles:
-    - nfs-server
-
-- hosts: workstations
-  tags: crylle
-  become: true
-  roles:
-    - workstations
