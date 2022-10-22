@@ -3,40 +3,40 @@
   tags: base,physical
   when: ansible_virtualization_role == "host"
   block:
-  
-  - name: "installing lldpd package"
-    apt:
-      name: "lldpd"
-      state: latest
 
-  - name: "starting lldpd"
-    service:
-      name: "lldpd"
-      state: started
-      enabled: yes
+    - name: "installing lldpd package"
+      apt:
+        name: "lldpd"
+        state: latest
+
+    - name: "starting lldpd"
+      service:
+        name: "lldpd"
+        state: started
+        enabled: yes
 
 - name: "specific tasks for virtualisation type kvm"
   tags: base,kvm
   when: ansible_virtualization_role == "guest" and ansible_virtualization_type == "kvm"
   block:
-  
-  - name: "installing qemu-guest-agent package"
-    apt:
-      name: "qemu-guest-agent"
-      state: latest
 
-  - name: "starting qemu-guest-agent"
-    service:
-      name: "qemu-guest-agent"
-      state: started
-      enabled: yes
+    - name: "installing qemu-guest-agent package"
+      apt:
+        name: "qemu-guest-agent"
+        state: latest
+
+    - name: "starting qemu-guest-agent"
+      service:
+        name: "qemu-guest-agent"
+        state: started
+        enabled: yes
 
 - name: "specific tasks for virtualisation type vmware"
   tags: base,vmware
   when: ansible_virtualization_role == "guest" and ansible_virtualization_type == "vmware"
   block:
-  
-  - name: "installing open-vm-tools package"
-    apt:
-      name: "open-vm-tools"
-      state: latest
+
+    - name: "installing open-vm-tools package"
+      apt:
+        name: "open-vm-tools"
+        state: latest

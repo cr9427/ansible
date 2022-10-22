@@ -7,8 +7,8 @@
     tags: debug
     debug:
       var: >
-        ansible_virtualization_type, 
-        ansible_distribution, 
+        ansible_virtualization_type,
+        ansible_distribution,
         ansible_distribution_release
 
   - name: "update repository cache on Debian based"
