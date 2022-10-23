@@ -6,3 +6,16 @@ base_sshd_permit_root_login: "prohibit-password"
 base_sshd_permit_tunnel: "no"
 base_sshd_x11_forwarding: "no"
 base_sshd_banner: ""
+
+postfix_aliases:
+  - user: root 
+    alias: admin@crylle.net 
+postfix_virtual_aliases:
+  - virtual: "@{{ ansible_fqdn }}"
+    alias: root
+postfix_mydestination:
+  - "{{ postfix_hostname }}"
+  - 'localhost'
+postfix_inet_interfaces: loopback-only
+postfix_relayhost: smtp.crylle.local
+postfix_relayhost_port: 25
