@@ -1,0 +1,7 @@
+---
+collections:
+  #- name: geerlingguy.k8s
+
+roles:
+  # From Ansible Galaxy, latest version.
+  - name: oefenweb.postfix
