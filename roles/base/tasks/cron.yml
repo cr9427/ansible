@@ -5,4 +5,4 @@
     user: automator
     minute: "7"
     hour: "*/4"
-    job: ansible-pull -o -U https://github.com/cr9427/ansible.git
+    job: ansible-pull -o -U https://github.com/cr9427/ansible.git > /dev/null
