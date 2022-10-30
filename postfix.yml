@@ -4,17 +4,5 @@
 
   roles:
     - oefenweb.postfix
-
-  vars:
-    postfix_aliases:
-      - user: root 
-        alias: admin@crylle.net 
-    postfix_virtual_aliases:
-      - virtual: "@{{ ansible_fqdn }}"
-        alias: root
-    postfix_mydestination:
-      - "{{ postfix_hostname }}"
-      - 'localhost'
-    postfix_inet_interfaces: loopback-only
-    postfix_relayhost: smtp.crylle.local
-    postfix_relayhost_port: 25
+    - oefenweb.timezone
+    - oefenweb.locales

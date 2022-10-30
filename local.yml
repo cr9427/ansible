@@ -17,20 +17,20 @@
     locales_language_packs_absent: []
 
   pre_tasks:
-  - name: "print some vars"
-    tags: debug
-    debug:
-      var: >
-        ansible_virtualization_type,
-        ansible_distribution,
-        ansible_distribution_release
+    - name: "print some vars"
+      tags: debug
+      debug:
+        var: >
+          ansible_virtualization_type,
+          ansible_distribution,
+          ansible_distribution_release
 
-  - name: "update repository cache on Debian based"
-    apt:
-      update_cache: yes
-      cache_valid_time: 3600
-    changed_when: false
-    when: ansible_distribution in ["Debian", "Ubuntu"]
+    - name: "update repository cache on Debian based"
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+      changed_when: false
+      when: ansible_distribution in ["Debian", "Ubuntu"]
 
 - hosts: all
   tags: base
