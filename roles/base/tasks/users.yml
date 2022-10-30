@@ -1,7 +1,7 @@
 ---
 - name: Creating users for automator
   user:
-    name: automator"
+    name: automator
     uid: 500
     groups: sudo
     system: yes
