@@ -4,9 +4,3 @@
     name: ssh
     state: restarted
     enabled: yes
-
-- name: "reloading postfix"
-  service:
-    name: postfix
-    state: restarted
-    enabled: yes
