@@ -4,6 +4,7 @@
   become: true
 
   vars:
+    ansible_pull_url: https://github.com/cr9427/ansible.git
     timezone_zone: Europe/Berlin
     locales_present:
       - en_US.UTF-8

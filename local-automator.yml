@@ -1,0 +1,45 @@
+---
+- hosts: localhost
+  tags: always
+  become: true
+
+  pre_tasks:
+    - name: "print some vars"
+      tags: debug
+      debug:
+        var: >
+          ansible_virtualization_type,
+          ansible_distribution,
+          ansible_distribution_release
+
+    - name: "update repository cache on Debian based"
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+      changed_when: false
+      when: ansible_distribution in ["Debian", "Ubuntu"]
+
+- hosts: all
+  become: true
+  tasks:
+    - name: Creating users for automator
+      user:
+        name: automator
+        uid: 500
+        groups: sudo
+        system: yes
+        create_home: yes
+
+    - name: Adding ssh key for user automator
+      authorized_key:
+        user: automator
+        key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG+ilozyZmL+d2Q2D3dlHiFqxfe994u8YJzGOVN5QSPZ automator@crylle.net
+
+    - name: Adding sudoers file for user automator
+      copy:
+        dest: /etc/sudoers.d/automator
+        content: automator ALL=(ALL) NOPASSWD: ALL
+        owner: root
+        group: root
+        mode: 0440
+
