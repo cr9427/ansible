@@ -7,6 +7,22 @@ base_sshd_permit_tunnel: "no"
 base_sshd_x11_forwarding: "no"
 base_sshd_banner: ""
 
+timezone_zone: Europe/Berlin
+
+locales_present:
+  - en_US.UTF-8
+  - de_DE.UTF-8
+
+locales_language_packs_present:
+  - language-pack-en
+  - language-pack-en-base
+  - language-pack-de
+  - language-pack-de-base
+
+locales_absent: []
+
+locales_language_packs_absent: []
+
 postfix_aliases:
   - user: root 
     alias: admin@crylle.net 
@@ -15,7 +31,7 @@ postfix_virtual_aliases:
     alias: root
 postfix_mydestination:
   - "{{ postfix_hostname }}"
-  - 'localhost'
+  - localhost
 postfix_inet_interfaces: loopback-only
 postfix_relayhost: smtp.crylle.local
 postfix_relayhost_port: 25
