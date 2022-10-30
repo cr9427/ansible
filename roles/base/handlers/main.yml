@@ -10,6 +10,3 @@
     name: postfix
     state: restarted
     enabled: yes
-
-- name: "rebuilding locales database"
-  command: dpkg-reconfigure -f noninteractive locales
