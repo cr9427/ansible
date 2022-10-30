@@ -5,3 +5,5 @@ collections:
 roles:
   # From Ansible Galaxy, latest version.
   - name: oefenweb.postfix
+  - name: oefenweb.timezone
+  - name: oefenweb.locales
