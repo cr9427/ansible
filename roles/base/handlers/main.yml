@@ -1,6 +1,18 @@
 ---
-- name: "reloading ssh"
-  service:
+- name: Reloading ssh
+  ansible.builtin.service:
     name: ssh
     state: restarted
-    enabled: yes
+    enabled: true
+
+- name: Starting lldpd
+  ansible.builtin.service:
+    name: lldpd
+    state: started
+    enabled: true
+
+- name: Starting qemu-guest-agent
+  ansible.builtin.service:
+    name: qemu-guest-agent
+    state: started
+    enabled: true

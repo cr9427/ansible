@@ -1,40 +1,36 @@
 ---
-- name: "specific tasks for Ubuntu"
-  tags: base,ubuntu
-  when: ansible_distribution in ['Ubuntu']
+- name: Tasks for Ubuntu
+  when:
+    - ansible_distribution in ['Ubuntu']
   block:
-  
-  - name: "installing specific packages for Ubuntu"
-    apt:
-      name: "{{ item }}"
-      state: latest
-    loop:
-      - "landscape-common"
-      - "update-notifier-common"
-      - "systemd-timesyncd"
+    - name: Installing specific packages for Ubuntu
+      ansible.builtin.apt:
+        name: "{{ item }}"
+        state: latest
+      with_item:
+        - landscape-common
+        - update-notifier-common
+        - systemd-timesyncd
 
-- name: "specific tasks for 'Pop!_OS'"
-  tags: base,ubuntu
-  when: ansible_distribution in ['Pop!_OS']
+- name: Tasks for 'Pop!_OS'
+  when:
+    - ansible_distribution in ['Pop!_OS']
   block:
-  
-  - name: "installing specific packages for Pop!_OS"
-    apt:
-      name: "{{ item }}"
-      state: latest
-    loop:
-      - "landscape-common"
+    - name: Installing specific packages for Pop!_OS
+      ansible.builtin.apt:
+        name: "{{ item }}"
+        state: latest
+      with_item:
+        - landscape-common
 
-- name: "specific tasks for Debian"
-  tags: base,ubuntu
-  when: ansible_distribution in ['Debian']
+- name: Tasks for Debian
+  when:
+    - ansible_distribution in ['Debian']
   block:
-  
-  - name: "installing specific packages for Debian"
-    apt:
-      name: "{{ item }}"
-      state: latest
-    loop:
-      - "reboot-notifier"
-      - "systemd-timesyncd"
-
+    - name: Installing specific packages for Debian
+      ansible.builtin.apt:
+        name: "{{ item }}"
+        state: latest
+      with_item:
+        - reboot-notifier
+        - systemd-timesyncd

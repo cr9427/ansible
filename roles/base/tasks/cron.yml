@@ -1,13 +1,14 @@
 ---
-- name: "adding ansible-pull cron job"
-  cron:
+- name: Adding ansible-pull cron job
+  ansible.builtin.cron:
     name: ansible auto-provision
     user: automator
-    minute: "7"
+    minute: 0
     hour: "*/4"
     job: >
       ansible-pull
       --url https://github.com/cr9427/ansible.git
       --only-if-changed
       --sleep 10800
+      --track-subs
       > /dev/null

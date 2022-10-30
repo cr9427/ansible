@@ -1,12 +1,12 @@
 ---
-base_unattended_upgrades_mail: "admin@crylle.net"
-base_unattended_upgrades_report: "only-on-error"
+base_unattended_upgrades_mail: admin@crylle.net
+base_unattended_upgrades_report: only-on-error
 base_unattended_upgrades_reboot: true
 
-base_sshd_allow_agent_forwarding: "no"
-base_sshd_allow_tcp_forwarding: "no"
-base_sshd_allow_password_authentication: "no"
-base_sshd_permit_root_login: "no"
-base_sshd_permit_tunnel: "no"
-base_sshd_x11_forwarding: "no"
-base_sshd_banner: "Banner /etc/issue.net.ansible"
+base_sshd_allow_agent_forwarding: no
+base_sshd_allow_tcp_forwarding: no
+base_sshd_allow_password_authentication: no
+base_sshd_permit_root_login: no
+base_sshd_permit_tunnel: no
+base_sshd_x11_forwarding: no
+base_sshd_banner: Banner /etc/issue.net.ansible

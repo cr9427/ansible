@@ -1,42 +1,34 @@
 ---
-- name: "specific tasks for virtualisation type NA - assuming physical"
-  tags: base,physical
-  when: ansible_virtualization_role == "host"
+- name: Tasks for virtualisation type NA - assuming physical
+  when:
+    - ansible_virtualization_role == "host"
   block:
 
-    - name: "installing lldpd package"
-      apt:
-        name: "lldpd"
+    - name: Installing lldpd package
+      ansible.builtin.apt:
+        name: lldpd
         state: latest
+      notify: Starting lldpd
 
-    - name: "starting lldpd"
-      service:
-        name: "lldpd"
-        state: started
-        enabled: yes
-
-- name: "specific tasks for virtualisation type kvm"
-  tags: base,kvm
-  when: ansible_virtualization_role == "guest" and ansible_virtualization_type == "kvm"
+- name: Tasks for virtualisation type kvm
+  when:
+    - ansible_virtualization_role == "guest"
+    - ansible_virtualization_type == "kvm"
   block:
 
-    - name: "installing qemu-guest-agent package"
-      apt:
-        name: "qemu-guest-agent"
+    - name: Installing qemu-guest-agent package
+      ansible.builtin.apt:
+        name: qemu-guest-agent
         state: latest
+      notify: Starting qemu-guest-agent
 
-    - name: "starting qemu-guest-agent"
-      service:
-        name: "qemu-guest-agent"
-        state: started
-        enabled: yes
-
-- name: "specific tasks for virtualisation type vmware"
-  tags: base,vmware
-  when: ansible_virtualization_role == "guest" and ansible_virtualization_type == "vmware"
+- name: Tasks for virtualisation type vmware
+  when:
+    - ansible_virtualization_role == "guest"
+    - ansible_virtualization_type == "vmware"
   block:
 
-    - name: "installing open-vm-tools package"
-      apt:
-        name: "open-vm-tools"
+    - name: Installing open-vm-tools package
+      ansible.builtin.apt:
+        name: open-vm-tools
         state: latest

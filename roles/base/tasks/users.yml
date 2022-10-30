@@ -1,58 +1,51 @@
 ---
-- name: "creating users for automator"
-  tags: base,automator
+- name: Creating users for automator
   user:
-    name: "automator"
+    name: automator"
     uid: 500
-    groups: "sudo"
+    groups: sudo
     system: yes
     create_home: yes
 
-- name: "adding ssh key for user automator"
-  tags: base,automator
+- name: Adding ssh key for user automator
   authorized_key:
     user: automator
-    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG+ilozyZmL+d2Q2D3dlHiFqxfe994u8YJzGOVN5QSPZ automator@crylle.net"
+    key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG+ilozyZmL+d2Q2D3dlHiFqxfe994u8YJzGOVN5QSPZ automator@crylle.net
 
-- name: "adding sudoers file for user automator"
-  tags: base,ansible
+- name: Adding sudoers file for user automator
   copy:
-    src: "roles/base/files/sudo/automator"
-    dest: "/etc/sudoers.d/automator"
+    src: roles/base/files/sudo/automator
+    dest: /etc/sudoers.d/automator
     owner: root
     group: root
     mode: 0440
 
-- name: "creating user holm"
-  tags: base,holm
+- name: Creating user holm
   when: inventory_hostname not in groups['crylle']
   user:
-    name: "holm"
+    name: holm
     uid: 1001
-    groups: "sudo, adm"
-    shell: "/usr/bin/zsh"
-    home: "/home/holm"
+    groups: sudo, adm
+    shell: /usr/bin/zsh
+    home: /home/holm
     create_home: yes
-    password: "$6$j9bjDnd.BY8BUs6v$bxi7SLmTd0UIHBPRuyeiVL8Vt4CFBGeXQnlNpUyPhWpu45ZOepXKMXf9LLJLGoZZTt5RXcahmSHaFSihkqXVp1"
+    password: $6$j9bjDnd.BY8BUs6v$bxi7SLmTd0UIHBPRuyeiVL8Vt4CFBGeXQnlNpUyPhWpu45ZOepXKMXf9LLJLGoZZTt5RXcahmSHaFSihkqXVp1
 
-- name: "adding ssh-key for user holm"
-  tags: base,holm
+- name: Adding ssh-key for user holm
   when: inventory_hostname not in groups['crylle']
   authorized_key:
-    user: "holm"
-    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBVtawLHGmKWf8WBPLhqksVCLvLYj+B8fev8QNEk/tVV hk@crylle.net"
+    user: holm
+    key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBVtawLHGmKWf8WBPLhqksVCLvLYj+B8fev8QNEk/tVV hk@crylle.net"
 
-- name: 'creating ssh-key for root'
-  tags: base,root
-  shell:
-    cmd: "ssh-keygen -t ed25519 -a 100 -f ~/.ssh/id_ed25519 -q -N ''  -C root@{{ ansible_hostname }}"
-    creates: '~/.ssh/id_ed25519'
+    #- name: Creating ssh-key for root
+    #  shell:
+    #    cmd: "ssh-keygen -t ed25519 -a 100 -f ~/.ssh/id_ed25519 -q -N ''  -C root@{{ ansible_hostname }}"
+    #    creates: ~/.ssh/id_ed25519
 
-- name: 'creating .gitconfig for root'
-  tags: base,root
+- name: Creating .gitconfig for root
   template:
-    src: "users/gitconfig-root.j2"
-    dest: "~/.gitconfig"
+    src: users/gitconfig-root.j2
+    dest: ~/.gitconfig
     owner: root
     group: root
     mode: 0644

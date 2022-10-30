@@ -1,30 +1,28 @@
 ---
-- name: "configuring ssh server and client"
-  tags: base,ssh
+- name: Configuring ssh server and client
   when: ansible_distribution in ['Debian', 'Ubuntu', 'Pop!_OS']
   block:
-
-  - name: "creating issue.net.ansible from template"
+  - name: Creating issue.net.ansible from template
     template:
-      src: "ssh/issue.net.j2"
-      dest: "/etc/issue.net.ansible"
+      src: ssh/issue.net.j2
+      dest: /etc/issue.net.ansible
       owner: root
       group: root
       mode: 0644
 
-  - name: "creating ssh client config from template"
+  - name: Creating ssh client config from template
     template:
-      src: "ssh/ssh_config.j2"
-      dest: "/etc/ssh/ssh_config.d/10-ansible.conf"
+      src: ssh/ssh_config.j2
+      dest: /etc/ssh/ssh_config.d/10-ansible.conf
       owner: root
       group: root
       mode: 0644
 
-  - name: "generating ssh server settings from template"
+  - name: Generating ssh server settings from template
     template:
-      src: "ssh/sshd_config.j2"
-      dest: "/etc/ssh/sshd_config.d/10-ansible.conf"
+      src: ssh/sshd_config.j2
+      dest: /etc/ssh/sshd_config.d/10-ansible.conf
       owner: root
       group: root
       mode: 0644
-    notify: "reloading ssh"
+    notify: Reloading ssh

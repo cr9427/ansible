@@ -1,25 +1,24 @@
 ---
-- name: "installing and configuring unattended-upgrades"
-  tags: base,unattended,upgrades
+- name: Installing and configuring unattended-upgrades
   when: ansible_distribution in ['Debian', 'Ubuntu', 'Pop!_OS']
   block:
-  - name: "installing unattended-upgrades package"
+  - name: Installing unattended-upgrades package
     apt:
-      name: "unattended-upgrades"
+      name: unattended-upgrades
       state: latest
 
-  - name: "configuring auto-upgrades settings"
+  - name: Configuring auto-upgrades settings
     template:
-      src: "unattended-upgrades/21auto-upgrades-local.j2"
-      dest: "/etc/apt/apt.conf.d/21auto-upgrades-local"
+      src: unattended-upgrades/21auto-upgrades-local.j2
+      dest: /etc/apt/apt.conf.d/21auto-upgrades-local
       owner: root
       group: root
       mode: 0644
 
-  - name: "generating unatended-upgrades settings from template"
+  - name: Generating unatended-upgrades settings from template
     template:
-      src: "unattended-upgrades/unattended-upgrades.{{ ansible_distribution }}.j2"
-      dest: "/etc/apt/apt.conf.d/51unattended-upgrades-local"
+      src: unattended-upgrades/unattended-upgrades.{{ ansible_distribution }}.j2
+      dest: /etc/apt/apt.conf.d/51unattended-upgrades-local
       owner: root
       group: root
       mode: 0644
