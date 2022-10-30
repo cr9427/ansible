@@ -4,3 +4,6 @@
 [submodule "oefenweb.locales"]
 	path = roles/oefenweb.locales
 	url = https://github.com/Oefenweb/ansible-locales.git
+[submodule "oefenweb.postfix"]
+	path = roles/oefenweb.postfix
+	url = https://github.com/Oefenweb/ansible-postfix.git
