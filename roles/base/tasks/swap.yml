@@ -1,9 +1,9 @@
 ---
-- name: is swap available on native host
+- name: Is swap available on native host
   when: >
     ansible_memory_mb['swap']['total'] == 0 and
     ansible_virtualization_role == "host" and
     ansible_distribution in ['Debian', 'Ubuntu', 'Pop!_OS']
   apt:
-    name: "dphys-swapfile"
+    name: dphys-swapfile
     state: latest

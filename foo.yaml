@@ -4,7 +4,4 @@
   tags: base
   become: true
   roles:
-    - base
-    - oefenweb.timezone
-    - oefenweb.locales
-    - oefenweb.postfix
+    - hifis.unattended_upgrades

@@ -4,6 +4,6 @@
 - import_tasks: roles/base/tasks/virtualization_type.yml
 - import_tasks: roles/base/tasks/distribution_type.yml
 - import_tasks: roles/base/tasks/ssh.yml
-- import_tasks: roles/base/tasks/unattended-upgrades.yml
+  #- import_tasks: roles/base/tasks/unattended-upgrades.yml
 - import_tasks: roles/base/tasks/users.yml
 - import_tasks: roles/base/tasks/cron.yml

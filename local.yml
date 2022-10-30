@@ -40,3 +40,4 @@
     - oefenweb.timezone
     - oefenweb.locales
     - oefenweb.postfix
+    - hifis.unattended_upgrades

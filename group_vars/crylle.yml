@@ -35,3 +35,30 @@ postfix_mydestination:
 postfix_inet_interfaces: loopback-only
 postfix_relayhost: smtp.crylle.local
 postfix_relayhost_port: 25
+
+unattended_package_blacklist: []
+unattended_mail: admin@crylle.net
+unattended_mail_only_on_error: false
+unattended_remove_unused_dependencies: true
+unattended_remove_new_unused_dependencies: true
+unattended_remove_unused_kernel_packages: true
+unattended_automatic_reboot: true
+#unattended_automatic_reboot_time: 02:00
+#unattended_ignore_apps_require_restart: true
+#
+# for Debian
+# unattended_origins_patterns:
+#  - 'origin=Debian,codename=${distro_codename},label=Debian-Security' # security updates
+#  - 'o=Debian,codename=${distro_codename},label=Debian' # updates including non-security updates
+#  - 'o=Debian,codename=${distro_codename},a=proposed-updates'
+#
+# for Ubuntu
+# unattended_origins_patterns:
+#  - 'origin=Ubuntu,archive=${distro_codename}-security'
+#  - 'o=Ubuntu,a=${distro_codename}'
+#  - 'o=Ubuntu,a=${distro_codename}-updates'
+#  - 'o=Ubuntu,a=${distro_codename}-proposed-updates'
+#
+# for Rasbian
+# unattended_origins_patterns:
+#  - 'origin=Raspbian,codename=${distro_codename},label=Raspbian'
