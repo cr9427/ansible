@@ -7,7 +7,7 @@
       ansible.builtin.apt:
         name: "{{ item }}"
         state: latest
-      with_item:
+      with_items:
         - landscape-common
         - update-notifier-common
         - systemd-timesyncd
@@ -20,7 +20,7 @@
       ansible.builtin.apt:
         name: "{{ item }}"
         state: latest
-      with_item:
+      with_items:
         - landscape-common
 
 - name: Tasks for Debian
@@ -31,6 +31,6 @@
       ansible.builtin.apt:
         name: "{{ item }}"
         state: latest
-      with_item:
+      with_items:
         - reboot-notifier
         - systemd-timesyncd
