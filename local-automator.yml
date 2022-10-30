@@ -38,7 +38,7 @@
     - name: Adding sudoers file for user automator
       copy:
         dest: /etc/sudoers.d/automator
-        content: automator ALL=(ALL) NOPASSWD: ALL
+        content: "automator ALL=(ALL) NOPASSWD: ALL"
         owner: root
         group: root
         mode: 0440
