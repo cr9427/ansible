@@ -37,10 +37,11 @@
     user: holm
     key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBVtawLHGmKWf8WBPLhqksVCLvLYj+B8fev8QNEk/tVV hk@crylle.net"
 
-    #- name: Creating ssh-key for root
-    #  shell:
-    #    cmd: "ssh-keygen -t ed25519 -a 100 -f ~/.ssh/id_ed25519 -q -N ''  -C root@{{ ansible_hostname }}"
-    #    creates: ~/.ssh/id_ed25519
+- name: Creating ssh-key for root
+  shell:
+    cmd: "ssh-keygen -t ed25519 -a 100 -q -N ''  -C root@{{ ansible_hostname }}"
+    # cmd: "ssh-keygen -t ed25519 -a 100 -f ~/.ssh/id_ed25519 -q -N ''  -C root@{{ ansible_hostname }}"
+    creates: ~/.ssh/id_ed25519
 
 - name: Creating .gitconfig for root
   template:
