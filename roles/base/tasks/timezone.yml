@@ -1,5 +1,0 @@
----
-- name: "setting timezone to {{ base_timezone }}"
-  tags: time, timezone
-  community.general.timezone:
-    name: "{{ base_timezone }}"
