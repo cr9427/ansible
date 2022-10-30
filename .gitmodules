@@ -1,3 +1,6 @@
 [submodule "oefenweb.timezone"]
 	path = roles/oefenweb.timezone
 	url = https://github.com/Oefenweb/ansible-timezone.git
+[submodule "oefenweb.locales"]
+	path = roles/oefenweb.locales
+	url = https://github.com/Oefenweb/ansible-locales.git
