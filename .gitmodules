@@ -7,3 +7,6 @@
 [submodule "oefenweb.postfix"]
 	path = roles/oefenweb.postfix
 	url = https://github.com/Oefenweb/ansible-postfix.git
+[submodule "hifis.unattended_upgrades"]
+	path = roles/hifis.unattended_upgrades
+	url = https://github.com/hifis-net/ansible-role-unattended-upgrades.git
