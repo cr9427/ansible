@@ -1,1 +1,1 @@
-nsible_connection: local
+ansible_connection: local
