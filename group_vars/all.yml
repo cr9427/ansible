@@ -1,0 +1,35 @@
+---
+packages_generic:
+  - net-tools
+  - zsh
+  - htop
+  - vim
+  - psmisc
+  - git
+  - lsof
+  - sudo
+  - binutils
+  - bsd-mailx
+  - iputils-ping
+  - iputils-tracepath
+  - openssh-server
+  - curl
+  - ethtool
+
+services_disabled: []
+
+timezone_zone: Europe/Berlin
+
+locales_present:
+  - en_US.UTF-8
+  - de_DE.UTF-8
+
+locales_language_packs_present:
+  - language-pack-en
+  - language-pack-en-base
+  - language-pack-de
+  - language-pack-de-base
+
+locales_absent: []
+
+locales_language_packs_absent: []

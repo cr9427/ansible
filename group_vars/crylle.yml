@@ -7,22 +7,6 @@ base_sshd_permit_tunnel: "no"
 base_sshd_x11_forwarding: "no"
 base_sshd_banner: ""
 
-timezone_zone: Europe/Berlin
-
-locales_present:
-  - en_US.UTF-8
-  - de_DE.UTF-8
-
-locales_language_packs_present:
-  - language-pack-en
-  - language-pack-en-base
-  - language-pack-de
-  - language-pack-de-base
-
-locales_absent: []
-
-locales_language_packs_absent: []
-
 postfix_aliases:
   - user: root 
     alias: admin@crylle.net 
@@ -51,13 +35,6 @@ unattended_automatic_reboot: true
 #  - 'origin=Debian,codename=${distro_codename},label=Debian-Security' # security updates
 #  - 'o=Debian,codename=${distro_codename},label=Debian' # updates including non-security updates
 #  - 'o=Debian,codename=${distro_codename},a=proposed-updates'
-#
-# for Ubuntu
-# unattended_origins_patterns:
-#  - 'origin=Ubuntu,archive=${distro_codename}-security'
-#  - 'o=Ubuntu,a=${distro_codename}'
-#  - 'o=Ubuntu,a=${distro_codename}-updates'
-#  - 'o=Ubuntu,a=${distro_codename}-proposed-updates'
 #
 # for Rasbian
 # unattended_origins_patterns:

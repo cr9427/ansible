@@ -5,17 +5,6 @@
 
   vars:
     ansible_pull_url: https://github.com/cr9427/ansible.git
-    timezone_zone: Europe/Berlin
-    locales_present:
-      - en_US.UTF-8
-      - de_DE.UTF-8
-    locales_language_packs_present:
-      - language-pack-en
-      - language-pack-en-base
-      - language-pack-de
-      - language-pack-de-base
-    locales_absent: []
-    locales_language_packs_absent: []
 
   pre_tasks:
     - name: "print some vars"

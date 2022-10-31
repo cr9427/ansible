@@ -1,8 +1,0 @@
----
-- hosts: crylle
-  become: yes
-
-  roles:
-    - oefenweb.postfix
-    - oefenweb.timezone
-    - oefenweb.locales

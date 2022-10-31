@@ -1,36 +1,33 @@
 ---
-- name: Tasks for Ubuntu
-  when:
-    - ansible_distribution in ['Ubuntu']
-  block:
-    - name: Installing specific packages for Ubuntu
-      ansible.builtin.apt:
-        name: "{{ item }}"
-        state: latest
-      with_items:
-        - landscape-common
-        - update-notifier-common
-        - systemd-timesyncd
+- name: Install {{ ansible_distribution }} specific packages
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - "{{ packages_os }}"
+    - "{{ packages_generic }}"
 
-- name: Tasks for 'Pop!_OS'
-  when:
-    - ansible_distribution in ['Pop!_OS']
-  block:
-    - name: Installing specific packages for Pop!_OS
-      ansible.builtin.apt:
-        name: "{{ item }}"
-        state: latest
-      with_items:
-        - landscape-common
+      #  name: Populate service facts
+      #  service_facts:
 
-- name: Tasks for Debian
-  when:
-    - ansible_distribution in ['Debian']
-  block:
-    - name: Installing specific packages for Debian
-      ansible.builtin.apt:
-        name: "{{ item }}"
-        state: latest
-      with_items:
-        - reboot-notifier
-        - systemd-timesyncd
+- name: Disable {{ ansible_distribution }} specific services
+  tags:
+    - services
+  service:
+    name: "{{ item }}"
+    state: stopped
+    enabled: false
+  register: unused_disable
+  failed_when: "unused_disable is failed and ('find' not in unused_disable.msg and 'found' not in unused_disable.msg)"
+  with_items: "{{ services_disabled }}"
+
+#- name: Tasks for 'Pop!_OS'
+#  when:
+#    - ansible_distribution in ['Pop!_OS']
+#  block:
+#    - name: Installing specific packages for Pop!_OS
+#      ansible.builtin.apt:
+#        name: "{{ item }}"
+#        state: latest
+#      with_items:
+#        - landscape-common

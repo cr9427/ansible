@@ -1,8 +1,4 @@
 ---
-base_unattended_upgrades_mail: admin@crylle.net
-base_unattended_upgrades_report: only-on-error
-base_unattended_upgrades_reboot: true
-
 base_sshd_allow_agent_forwarding: no
 base_sshd_allow_tcp_forwarding: no
 base_sshd_allow_password_authentication: no
