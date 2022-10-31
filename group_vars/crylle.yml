@@ -10,6 +10,32 @@ base_sshd_banner: ""
 ansible_pull_user: automator
 ansible_pull_url: https://github.com/cr9427/ansible.git
 
+autofs_maps:
+  - mountpoint: /homes
+    options:
+      - "--timeout=60"
+    directories:
+      - path: "*"
+        server: "nas:/homes/&"
+  - mountpoint: /nas
+    options:
+      - "--timeout=60"
+    directories:
+      - path: "srv"
+        options:
+          - rw
+          - soft
+          - intr
+          - rsize=8192
+          - wsize=8192
+        server: "nas:/Srv"
+      - path: "www"
+        server: "nas:/Web"
+      - path: "pub"
+        server: "nas:/Public"
+      - path: "download"
+        server: "nas2:/Download"
+
 postfix_aliases:
   - user: root 
     alias: admin@crylle.net 

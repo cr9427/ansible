@@ -33,6 +33,8 @@
     - oefenweb.locales
     - oefenweb.postfix
     - hifis.unattended_upgrades
+    - robertdebock.bootstrap
+    - robertdebock.autofs
 
 - hosts: proxmox
   become: true

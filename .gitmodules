@@ -10,3 +10,9 @@
 [submodule "hifis.unattended_upgrades"]
 	path = roles/hifis.unattended_upgrades
 	url = https://github.com/hifis-net/ansible-role-unattended-upgrades.git
+[submodule "robertdebock.bootstrap"]
+	path = roles/robertdebock.bootstrap
+	url = https://github.com/robertdebock/ansible-role-bootstrap.git
+[submodule "robertdebock.autofs"]
+	path = roles/robertdebock.autofs
+	url = https://github.com/robertdebock/ansible-role-autofs.git

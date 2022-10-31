@@ -5,12 +5,6 @@
     state: restarted
     enabled: yes
 
-- name: "reloading autofs"
-  service:
-    name: autofs
-    state: restarted
-    enabled: yes
-
 - name: "reloading systemd-timesyncd"
   service:
     name: systemd-timesyncd
