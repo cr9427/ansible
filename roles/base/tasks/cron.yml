@@ -2,7 +2,7 @@
 - name: Adding ansible-pull cron job
   ansible.builtin.cron:
     name: ansible auto-provision
-    user: {{ ansible_pull_user }}
+    user: "{{ ansible_pull_user }}"
     minute: "0"
     hour: "*/4"
     job: >

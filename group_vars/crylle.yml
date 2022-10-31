@@ -7,6 +7,9 @@ base_sshd_permit_tunnel: "no"
 base_sshd_x11_forwarding: "no"
 base_sshd_banner: ""
 
+ansible_pull_user: automator
+ansible_pull_url: https://github.com/cr9427/ansible.git
+
 postfix_aliases:
   - user: root 
     alias: admin@crylle.net 

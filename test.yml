@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: proxmox
   become: true
   pre_tasks:
     - name: Print some variables"
@@ -32,4 +32,4 @@
 #    when: ansible_distribution == "CentOS"
 
   roles:
-    - base
+    - proxmox

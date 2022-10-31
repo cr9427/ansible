@@ -1,8 +1,8 @@
 ---
-- name: "reloading apt-cache"
+- name: Reloading apt-cache
   shell:
-    cmd: 'apt update'
+    cmd: apt update
 
-- name: "reloading networking"
+- name: Reloading networking
   shell:
-    cmd: 'systemctl restart networking.service'
+    cmd: systemctl restart networking.service

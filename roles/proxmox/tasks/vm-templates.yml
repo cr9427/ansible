@@ -1,0 +1,43 @@
+---
+- name: Downloading VM Template images
+  get_url:
+    url: "{{ item.url }}/{{ item.image }}"
+    dest: /tmp/{{ item.image }}
+  with_items:
+    - "{{ proxmox_vm_templates }}"
+
+- name: Creating VM Template images symlink to qcow2
+  file:
+    src: /tmp/{{ item.image }}
+    dest: /tmp/{{ item.image }}.qcow2
+    state: link
+  with_items:
+    - "{{ proxmox_vm_templates }}"
+
+- name: Creating Ubuntu VM template and VM's
+  shell:
+    chdir: /tmp
+    cmd: |
+      qemu-img resize /tmp/{{ item.image }}.qcow2 32G
+      qm destroy {{ item.vm_id }}
+      qm destroy {{ item.template_id }}
+      #
+      qm create {{ item.template_id }} \
+        --name {{ item.name }} --numa 0 --ostype l26 \
+        --cpu cputype=host --cores {{ item.cpu }} --sockets 1 \
+        --memory {{ item.mem }}  \
+        --net0 virtio,bridge=vmbr0
+      qm importdisk {{ item.template_id }} /tmp/{{ item.image }}.qcow2 local-lvm
+      qm set {{ item.template_id }} --scsihw virtio-scsi-pci --scsi0 local-lvm:vm-{{ item.template_id }}-disk-0,discard=on,ssd=1
+      qm set {{ item.template_id }} --boot c --bootdisk scsi0
+      qm set {{ item.template_id }} --serial0 socket --vga serial0
+      qm set {{ item.template_id }} --agent enabled=1
+      qm set {{ item.template_id }} --ipconfig0 ip=dhcp,ip6=dhcp
+      qm set {{ item.template_id }} --ide2 local-lvm:cloudinit
+      qm set {{ item.template_id }} --cicustom {{ item.cicustom }}
+      qm template {{ item.template_id }}
+      qm clone {{ item.template_id }} {{ item.vm_id }} --name {{ item.name }}
+      touch /etc/pve/{{ item.name }}.configured
+    creates: /etc/pve/{{ item.name }}.configured
+  with_items:
+    - "{{ proxmox_vm_templates }}"

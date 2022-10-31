@@ -7,9 +7,21 @@ proxmox_nfs_mounts_content: 'vztmpl,rootdir,snippets,iso,backup,images'
 proxmox_nfs_mounts_max_protected_backups: '5'
 proxmox_nfs_mounts_prune_backups: 'keep-last=3'
 
-proxmox_vm_template_image: 'jammy-minimal-cloudimg-amd64.img'
-proxmox_vm_template_id: '9100'
-proxmox_vm_template_cpu: '2'
-proxmox_vm_template_mem: '2048'
-proxmox_vm_template_cicustom: 'user={{ proxmox_nfs_mounts_storageId }}:snippets/user-data.yaml'
-proxmox_vm_template_vmid: '1000'
+proxmox_vm_tempate_version: jammy
+proxmox_vm_templates:
+  - name: ubu-min-cloudinit
+    url: https://cloud-images.ubuntu.com/minimal/daily/{{ proxmox_vm_tempate_version }}/current
+    image: "{{ proxmox_vm_tempate_version }}-minimal-cloudimg-amd64.img"
+    template_id: 9101
+    vm_id: 1101
+    cpu: 1
+    mem: 1024
+    cicustom: 'user={{ proxmox_nfs_mounts_storageId }}:snippets/user-data.yaml'
+  - name: ubu-srv-cloudinit
+    url: https://cloud-images.ubuntu.com/daily/server/{{ proxmox_vm_tempate_version }}/current/
+    image: "{{ proxmox_vm_tempate_version }}-server-cloudimg-amd64.img"
+    template_id: 9102
+    vm_id: 1102
+    cpu: 1
+    mem: 1024
+    cicustom: 'user={{ proxmox_nfs_mounts_storageId }}:snippets/user-data.yaml'

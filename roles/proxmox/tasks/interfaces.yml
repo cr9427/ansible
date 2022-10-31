@@ -1,12 +1,12 @@
 ---
-- name: 'configuring interfaces for host {{ ansible_hostname }}'
+- name: Configuring interfaces for host {{ ansible_hostname }}
   tags: proxmox,interfaces
   when: ansible_hostname == 'pve1'
   copy:
-    src: "interfaces/interfaces.{{ ansible_hostname }}"
-    dest: "/etc/network/interfaces"
+    src: interfaces/interfaces.{{ ansible_hostname }}
+    dest: /etc/network/interfaces
     backup: yes
-    mode: '0644'
-    owner: 'root'
-    group: 'root'
-  notify: "reloading networking"
+    mode: 0644
+    owner: root
+    group: root
+  notify: Reloading networking
