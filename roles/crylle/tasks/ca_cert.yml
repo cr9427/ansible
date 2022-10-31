@@ -7,7 +7,6 @@
     - name: "installing package ca-certificates"
       apt:
         name: "ca-certificates"
-        state: latest
 
     - name: "fetching certificate from {{ crylle_ca_cert }}"
       get_url:
@@ -16,11 +15,5 @@
         owner: root
         group: root
         mode: 0644
-      register: crylle_ca_cert_update
-
-    - name: "updating ca certificates"
-      command:
-      become: yes
-      when: crylle_ca_cert_update.changed
-      args:
-        cmd: "/usr/sbin/update-ca-certificates"
+        force: true
+      notify: Updating ca-certificates

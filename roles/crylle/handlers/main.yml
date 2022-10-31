@@ -11,3 +11,7 @@
     state: restarted
     enabled: yes
 
+- name: Updating ca-certificates
+  command:
+  args:
+    cmd: "/usr/sbin/update-ca-certificates"

@@ -3,6 +3,8 @@
   become: true
   pre_tasks:
     - name: Print some variables"
+      tags:
+        - always
       debug:
         var: >
           ansible_virtualization_type,
@@ -10,6 +12,8 @@
           ansible_distribution_release
 
     - name: Create groups based on the distibution type
+      tags:
+        - always
       group_by:
         key: "{{ ansible_distribution }}"
       changed_when: false
@@ -36,7 +40,14 @@
     - robertdebock.bootstrap
     - robertdebock.autofs
 
+- hosts: crylle
+  become: true
+  roles:
+    - crylle
+
 - hosts: proxmox
   become: true
   roles:
+    - proxmox
+  tags:
     - proxmox
