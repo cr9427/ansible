@@ -23,7 +23,6 @@
       when: ansible_distribution in ["Debian", "Ubuntu"]
 
 - hosts: all
-  tags: base
   become: true
   roles:
     - base

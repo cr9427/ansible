@@ -11,8 +11,6 @@
       #  service_facts:
 
 - name: Disable {{ ansible_distribution }} specific services
-  tags:
-    - services
   service:
     name: "{{ item }}"
     state: stopped
