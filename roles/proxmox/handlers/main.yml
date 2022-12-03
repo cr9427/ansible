@@ -6,3 +6,7 @@
 - name: Reloading networking
   shell:
     cmd: systemctl restart networking.service
+
+- name: Reloading pveproxy
+  shell:
+    cmd: systemctl restart pveproxy.service

@@ -4,3 +4,4 @@
 - import_tasks: roles/proxmox/tasks/nfs-mounts.yml
 - import_tasks: roles/proxmox/tasks/cron.yml
 - import_tasks: roles/proxmox/tasks/vm-templates.yml
+- import_tasks: roles/proxmox/tasks/no-subscription-nag.yml

@@ -1,0 +1,8 @@
+---
+- name: Disable Subscription Nag
+  lineinfile:
+    path: /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js
+    regexp: '^\s+\.data\.status\.toLowerCase'
+    line: "      .data.status.toLowerCase() == 'active') {"
+    backup: true
+  notify: Reloading pveproxy

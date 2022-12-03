@@ -16,3 +16,6 @@
 [submodule "robertdebock.autofs"]
 	path = roles/robertdebock.autofs
 	url = https://github.com/robertdebock/ansible-role-autofs.git
+[submodule "geerlingguy.ntp"]
+	path = roles/geerlingguy.ntp
+	url = https://github.com/geerlingguy/ansible-role-ntp.git
